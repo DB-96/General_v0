@@ -1,0 +1,5 @@
+za  7 mei 2022 23:19:45 CEST
+default via 192.168.178.1 dev wlo1 proto dhcp metric 600 
+Ping: 23.616 ms
+Download: 180.93 Mbit/s
+Upload: 29.83 Mbit/s

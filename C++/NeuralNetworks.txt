@@ -1,0 +1,28 @@
+﻿Training Neural Networks with C++ - LinkedIn Learning
+ - 25/07/2022
+ - Neural Network ~ learning/calssifying
+ - Why C++?
+  - Most widely used and popular programming languages
+  - plethora of libraries (including neural nets)
+  - Run code anywhere because of STL
+  - akinator and 20q.net
+Learning Methods
+ - Supervised Learning
+    - Regression - Linear, Logistic, Exponential - stock markets and weather predictors
+    - Classification -  Suppoert vector machines, decision trees
+
+ - Unsupervised Learning 
+  - Clustering - medical imaging, recommender 
+  - Anomaly detection
+  - Neural Networks - deep belief Networks
+
+- Reinforcement Learning - feedback loop with reqrds/penalties based on behaviour (think of the rat experiments)
+ - Video game AI's
+
+
+- Hopfield Neural Networks
+
+
+ 
+- Convolutional Neural Networks
+ - Feed forward/multilayered perceptrons
