@@ -7,6 +7,7 @@
 ## later processing
 ## 45 * * * * /usr/bin/python3 /home/db/Development/Git/Python_Natives/speedTestAutomation.py
 ###################################################################################################
+from types import new_class
 import speedtest as st
 import pandas as pd
 
@@ -28,7 +29,7 @@ def get_new_speeds():
     return(ping, download_mbs, upload_mbs)
 
 def update_csv(internet_speeds):
-    date_today =datetime.now().strftime("%d-%m-%Y %H:%M:%S ")
+    date_today =datetime.now().strftime("%d-%m-%Y %H:%M:%S ") ## Date in ISO standard format (always)
     csv_file_name   = "/home/db/Development/Git/Python/TestAutomation.csv"
 
     try:
@@ -43,7 +44,7 @@ def update_csv(internet_speeds):
     hostname   = soc.socket(soc.AF_INET, soc.SOCK_DGRAM)
     hostname.connect(("8.8.8.8", 80))
     IPAddr     = hostname.getsockname()[0]
-    #  192.168.178.192 is typically the ethernet connection
+    #  192.168.178.192 is typically the ethernet connection @ 3026 CL
  
     results_df = pd.DataFrame(
         [[internet_speeds[0], internet_speeds[1], internet_speeds[2], IPAddr]],
