@@ -9,7 +9,9 @@
 ###################################################################################################
 import speedtest as st
 import pandas as pd
+
 import socket as soc
+
 from datetime import datetime
 
 def get_new_speeds():
@@ -36,8 +38,13 @@ def update_csv(internet_speeds):
             list(),
             columns=["Ping (ms)","Download (Mb/s)","Upload (Mb/s)", "IP Address"]
         )
-    hostname   = soc.gethostname()    
-    IPAddr     = soc.gethostbyname(hostname)  
+    # hostname   = soc.getfqdn() 
+    # IPAddr     = soc.gethostbyname(soc.getfqdn())
+    hostname   = soc.socket(soc.AF_INET, soc.SOCK_DGRAM)
+    hostname.connect(("8.8.8.8", 80))
+    IPAddr     = hostname.getsockname()[0]
+    #  192.168.178.192 is typically the ethernet connection
+ 
     results_df = pd.DataFrame(
         [[internet_speeds[0], internet_speeds[1], internet_speeds[2], IPAddr]],
         columns=["Ping (ms)", "Download (Mb/s)","Upload (Mb/s)", "IP Address"],
@@ -47,5 +54,7 @@ def update_csv(internet_speeds):
     updated_df\
         .loc[~updated_df.index.duplicated(keep="last")]\
             .to_csv(csv_file_name, index_label = "Date")
+
 new_speeds = get_new_speeds()
 update_csv(new_speeds)
+print(new_speeds)
