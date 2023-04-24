@@ -1,0 +1,1 @@
+DoCmd.RunSQL "Insert Into <TableName> Select * from <OtherTableName>"
