@@ -16,16 +16,16 @@ import pyttsx3
 engine = pyttsx3.init('espeak')
 voices = engine.getProperty('voices')
 # engine.setProperty('voice','english_rp+f2')
-engine.setProperty('voice', 'en-scottish')
+engine.setProperty('voice', 'english_rp+f3')
 rate = engine.getProperty('rate')
-engine.setProperty('rate', rate-75)
+engine.setProperty('rate', rate-50)
 # gender = engine.getProperty('gender')
 # engine.SetProperty('gender',female)
 
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
-query = input("What Would you like to know?")
+query = input("Type in a keyword of a topic you would like to know about :: ")
 results = wikipedia.summary(query, sentences=3)
 
 print(results)
